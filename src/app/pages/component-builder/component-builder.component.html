@@ -1,0 +1,174 @@
+<!-- <form [formGroup]="styles" (ngSubmit)="onSubmit()"> -->
+<!--     <div class="flex flex-col gap-4 w-full p-4 bg-gray-100 rounded-lg shadow-md"> -->
+<!--         <label class="text-gray-700 font-medium">Button Color</label> -->
+<!--         <input type="color" id="buttonColor" formControlName="buttonColor" class="w-16 h-10 p-1 border rounded-md" /> -->
+<!---->
+<!--         <label class="text-gray-700 font-medium">Button Radius</label> -->
+<!--         <input type="range" id="radius" formControlName="radius" min="0" max="50" class="w-full accent-blue-500" /> -->
+<!---->
+<!--         <label class="text-gray-700 font-medium">Button Padding (Horizontal)</label> -->
+<!--         <input type="range" id="paddingHorizontal" formControlName="paddingHorizontal" min="0" max="50" -->
+<!--             class="w-full accent-blue-500" /> -->
+<!---->
+<!--         <label class="text-gray-700 font-medium">Button Padding (Vertical)</label> -->
+<!--         <input type="range" id="paddingVertical" formControlName="paddingVertical" min="0" max="50" -->
+<!--             class="w-full accent-blue-500" /> -->
+<!---->
+<!--         <label class="text-gray-700 font-medium">Button Text Color</label> -->
+<!--         <input type="color" id="text" formControlName="textColor" class="w-16 h-10 p-1 border rounded-md" /> -->
+<!---->
+<!--         <label class="text-gray-700 font-medium">Button Text Content</label> -->
+<!--         <input type="text" id="text" formControlName="textContent" -->
+<!--             class="w-full p-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" /> -->
+<!--     </div> -->
+<!---->
+<!--     <button [ngStyle]="buttonStyles">{{ styles.get('textContent')?.value }}</button> -->
+<!--     <button type="submit" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Submit</button> -->
+<!---->
+<!--     <div class="mt-4"> -->
+<!--         <p class="font-bold">Preview:</p> -->
+<!--         <button [ngStyle]="buttonStyles"> -->
+<!--             {{ styles.get('textContent')?.value }} -->
+<!--         </button> -->
+<!--     </div> -->
+<!-- </form> -->
+<!-- -->
+<div class="h-screen w-screen bg-white text-gray-800 font-sans">
+  <div class="flex items-center justify-between px-4 py-2 border-b">
+    <h1 class="text-lg font-semibold">NoCode Builder</h1>
+    <div class="flex gap-2">
+      <button
+        class="px-3 py-1 border rounded text-sm cursor-pointer"
+        (click)="onSubmit()"
+      >
+        Save
+      </button>
+      <button class="px-3 py-1 border rounded text-sm cursor-pointer">
+        Preview
+      </button>
+      <button class="px-3 py-1 border rounded text-sm cursor-pointer">
+        &lt;/&gt; Export
+      </button>
+    </div>
+    <div>
+      <button class="p-2 rounded hover:bg-gray-100">
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 4v16m8-8H4"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="flex h-[calc(100%-48px)]">
+    <!-- Left Sidebar -->
+    <div class="w-1/5 border-r p-4 overflow-auto">
+      <h2 class="text-sm font-semibold mb-2">Components</h2>
+      <button class="mb-4 text-xl">+</button>
+      <ul class="text-sm space-y-1">
+        <li>
+          Page
+          <ul class="ml-4">
+            <li>
+              Header
+              <ul class="ml-4">
+                <li>Logo</li>
+                <li>
+                  Navigation
+                  <ul class="ml-4">
+                    <li>Link 1</li>
+                    <li>Link 2</li>
+                    <li>Link 3</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              Hero Section
+              <ul class="ml-4">
+                <li>Heading</li>
+                <li>Subheading</li>
+                <li>Button</li>
+              </ul>
+            </li>
+            <li>Features Section</li>
+            <li>Footer</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Canvas Area -->
+    <div class="w-3/5 flex items-center justify-center border-r">
+      <div
+        class="border-2 border-dashed border-gray-300 w-[300px] h-[500px] flex items-center justify-center text-gray-400 text-sm"
+      >
+        Drag components here to start building
+      </div>
+    </div>
+
+    <!-- Right Sidebar -->
+    <div class="w-1/5 p-4">
+      <div class="mb-2 font-semibold text-sm">Properties</div>
+      <div>
+        <div class="text-xs font-medium text-gray-500 mb-1">DIMENSIONS</div>
+        <div class="flex gap-2 mb-3">
+          <input
+            type="text"
+            placeholder="Auto"
+            class="border px-2 py-1 text-xs w-1/2 rounded"
+          />
+          <input
+            type="text"
+            placeholder="Auto"
+            class="border px-2 py-1 text-xs w-1/2 rounded"
+          />
+        </div>
+
+        <div class="text-xs font-medium text-gray-500 mb-1">SPACING</div>
+        <div class="flex gap-2 mb-3">
+          <input
+            type="text"
+            placeholder="0px"
+            class="border px-2 py-1 text-xs w-1/2 rounded"
+          />
+          <input
+            type="text"
+            placeholder="0px"
+            class="border px-2 py-1 text-xs w-1/2 rounded"
+          />
+        </div>
+
+        <div class="text-xs font-medium text-gray-500 mb-1">TYPOGRAPHY</div>
+        <select class="border px-2 py-1 text-xs w-full mb-2 rounded">
+          <option>Inter</option>
+        </select>
+        <div class="flex gap-2 mb-2">
+          <input
+            type="text"
+            placeholder="16px"
+            class="border px-2 py-1 text-xs w-1/2 rounded"
+          />
+          <select class="border px-2 py-1 text-xs w-1/2 rounded">
+            <option>Regular</option>
+          </select>
+        </div>
+        <input type="color" class="w-full h-8 border rounded mb-3" />
+
+        <div class="text-xs font-medium text-gray-500 mb-1">BACKGROUND</div>
+        <input type="color" class="w-full h-8 border rounded mb-2" />
+        <button class="w-full px-3 py-1 border rounded text-xs">Upload</button>
+      </div>
+    </div>
+  </div>
+</div>
